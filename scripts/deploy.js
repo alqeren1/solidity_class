@@ -17,7 +17,10 @@ async function main() {
     // A status of 1 indicates success.
     const contractAddress = simpleStorage.target
     console.log("SimpleStorage deployed to:" + contractAddress)
+    await sleep(2000)
     let currentblock = await ethers.provider.getBlockNumber()
+    //console.log(await (network.config.chainId))
+   
     if (network.config.chainId != 31337) {
         await blockwait(2)
         await verify(contractAddress, [])
